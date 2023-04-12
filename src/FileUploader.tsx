@@ -73,7 +73,17 @@ const drawDescription = (
         </>
       ) : (
         <>
-          <span>{typeof currFile === "File" ? currFile.name : ""}</span>
+          {
+            currFile !== null ?
+              <span>{
+              Array.isArray(currFile) ? 
+                currFile.map((file: File) => {file.name}).join(", ")
+              :
+                currFile.name
+              }</span>
+            :
+              <>Ups... Da ist ein Fehler aufgetreten.</>
+          }
         </>
       )}
     </Description>
