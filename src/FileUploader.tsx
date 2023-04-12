@@ -53,11 +53,11 @@ const drawDescription = (
   label: string | undefined
 ) => {
   return typeError ? (
-    <span>File type/size error, Hovered on types!</span>
+    <span>Fehler bei Dateityp oder -größe!</span>
   ) : (
     <Description>
       {disabled ? (
-        <span>Upload disabled</span>
+        <span>Hochladen deaktiviert</span>
       ) : !currFile && !uploaded ? (
         <>
           {label ? (
@@ -67,13 +67,13 @@ const drawDescription = (
             </>
           ) : (
             <>
-              <span>Upload</span> or drop a file right here
+              <span>Datei</span> hier ablegen oder klicken
             </>
           )}
         </>
       ) : (
         <>
-          <span>Uploaded Successfully!</span> Upload another?
+          <span>{typeof currFile === "File" ? currFile.name : ""}</span>
         </>
       )}
     </Description>
